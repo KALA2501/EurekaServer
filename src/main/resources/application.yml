@@ -1,17 +1,21 @@
 spring:
   application:
     name: discovery-service
+
 server:
   port: 8761
 
 eureka:
   instance:
     hostname: localhost
-    prefer-ip-address: false # Use hostname instead of IP address
+    prefer-ip-address: false # Usa hostname (localhost) en lugar de IP
+
   client:
-    register-with-eureka: false # Don't register itself in Eureka
-    fetch-registry: false # Don't fetch registry from Eureka
+    register-with-eureka: false # No se registra a sí mismo
+    fetch-registry: false       # No intenta obtener el registro
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: http://localhost:8761/eureka
+
   server:
+    enable-self-preservation: true
     renewal-percent-threshold: 0.85
