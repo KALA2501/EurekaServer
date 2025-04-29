@@ -7,14 +7,14 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
-    prefer-ip-address: false # Usa hostname (localhost) en lugar de IP
+    hostname: discovery-service
+    prefer-ip-address: false
 
   client:
-    register-with-eureka: false # No se registra a sí mismo
-    fetch-registry: false       # No intenta obtener el registro
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://discovery-service:8761/eureka
 
   server:
     enable-self-preservation: true
